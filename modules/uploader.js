@@ -27,7 +27,7 @@ class Uploader extends Module {
   upload(range, files) {
     const uploads = [];
     Array.from(files).forEach(file => {
-      if (file && this.options.mimetypes.includes(file.type)) {
+      if (file && this.options && this.options.mimetypes && this.options.mimetypes.includes(file.type)) {
         uploads.push(file);
       }
     });
