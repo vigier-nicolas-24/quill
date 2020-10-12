@@ -147,11 +147,29 @@ class Clipboard extends Module {
     const html = e.clipboardData.getData('text/html');
     const text = e.clipboardData.getData('text/plain');
     const files = Array.from(e.clipboardData.files || []);
+
+    if (this.checkPreventedHtml(html)) return;
+
     if (!html && files.length > 0) {
       this.quill.uploader.upload(range, files);
     } else {
       this.onPaste(range, { html, text });
     }
+  }
+
+  checkPreventedHtml(html) {
+    let prevented = false;
+
+    if (this.options && this.options.preventedHtml && html) {
+      for (const preventedHtml of this.options.preventedHtml) {
+        if (html.includes(preventedHtml)) {
+          prevented = true;
+          break;
+        }
+      }
+    }
+
+    return prevented;
   }
 
   onCopy(range) {
