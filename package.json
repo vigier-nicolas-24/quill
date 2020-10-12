@@ -1,6 +1,6 @@
 {
   "name": "quill",
-  "version": "2.0.0-dev.4",
+  "version": "2.0.0-dev.4-preventedHtml",
   "description": "Your powerful, rich text editor",
   "author": "Jason Chen <jhchen7@gmail.com>",
   "homepage": "http://quilljs.com",
@@ -80,7 +80,7 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "https://github.com/quilljs/quill"
+    "url": "https://github.com/vigier-nicolas-24/quill"
   },
   "bugs": {
     "url": "https://github.com/quilljs/quill/issues"
