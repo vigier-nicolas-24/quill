@@ -161,12 +161,9 @@ class Clipboard extends Module {
     let prevented = false;
 
     if (this.options && this.options.preventedHtml && html) {
-      for (const preventedHtml of this.options.preventedHtml) {
-        if (html.includes(preventedHtml)) {
-          prevented = true;
-          break;
-        }
-      }
+      prevented =
+        this.options.preventedHtml.filter(element => html.includes(element))
+          .length > 0;
     }
 
     return prevented;
